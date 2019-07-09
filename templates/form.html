@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="post,">
+    {{ form.csrf_token }} <!-- 渲染CSRF令牌隐藏字段 -->
+    {{ form.username.label }}<br>{{ form.username(class='form-control') }}<br>
+    {{ form.password.label }}<br>{{ form.password(class='form-control') }}<br>
+    {{ form.remember }}{{ form.remember.label }}<br>
+    {{ form.submit }}<br>
+</form>
+
+<br><br><br><br><br>
+
+<form method="post," target="{{ url_for('recvform') }}">
+
+    <div class="form-group">
+       {{ form.username.label }}
+       {{ form.username(class='form-control') }}
+    </div>
+    <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(class='form-control') }}
+    </div>
+    <div class="form-check">
+        {{ form.remember(class='form-check-input') }}
+        {{ form.remember.label }}
+    </div>
+    {{ form.submit(class='btn btn-primary') }}
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block styles %}
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/localstyle.css') }}">
+    {% endblock styles %}
+    {% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% endblock scripts %}
+<style>
+:root {
+
+    --background-url: {{ url_for('static', filename='avatar1.jpg') }}
+}
+</style>
+    <title>test title</title>
+</head>
+<body class="--background-url">
+
+    <main>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+
+        {% block content %}
+            <h3>write something here</h3>
+        {% endblock content %}
+    </main>
+
+</body>
+</html>
+
+
