@@ -47,3 +47,6 @@ def basic():
 def page404(e):
     return render_template('404.html'), 404
 
+
+if __name__ =="__main__":
+    app.run(debug=True)
