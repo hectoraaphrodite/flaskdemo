@@ -43,10 +43,19 @@ def basic():
     return render_template('pics.html', form=form)
 
 
+@app.route('/fc')
+def fc():
+    return render_template('fc.html')
+
+@app.route('/fcqs')
+def fcqs():
+    return render_template('fcqs.html')
+
+
 @app.errorhandler(404)
 def page404(e):
     return render_template('404.html'), 404
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     app.run(debug=True)
