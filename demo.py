@@ -47,6 +47,10 @@ def basic():
 def fc():
     return render_template('fc.html')
 
+@app.route('/st')
+def fc():
+    return render_template('st.html')
+
 @app.route('/fcqs')
 def fcqs():
     return render_template('fcqs.html')
